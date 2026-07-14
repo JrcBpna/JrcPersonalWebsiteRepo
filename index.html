@@ -1,40 +1,130 @@
 <!DOCTYPE html>
-<html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
-<title>Jayaram Portfolio (Dummy)</title>
-<style>
-body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#fff}
-header{position:sticky;top:0;background:#1118;padding:15px;backdrop-filter:blur(8px)}
-nav a{color:#7dd3fc;margin:0 10px;text-decoration:none}
-section{padding:60px 10%}
-.hero{height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#2563eb,#7c3aed)}
-.card{background:#1e293b;padding:20px;border-radius:12px;margin:15px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.progress{height:10px;background:#334155;border-radius:10px}.fill{height:100%;background:#38bdf8}
-button{padding:10px 20px}
-.light{background:#f5f5f5;color:#222}.light .card{background:#fff}
-</style></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jrc Personal Website</title>
+  <style>
+    /* Reset & base styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f4f4f9; color: #333; }
+
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #333;
+    }
+    nav a {
+      color: white;
+      padding: 1rem;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background: #4CAF50;
+    }
+
+    main {
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    section {
+      flex: 1 1 300px;
+      margin: 1rem;
+      padding: 1rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #333;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      nav { flex-direction: column; }
+      nav a { text-align: center; }
+    }
+  </style>
+</head>
 <body>
-<header><nav><a href=#about>About</a><a href=#skills>Skills</a><a href=#projects>Projects</a><a href=#contact>Contact</a>
-<button onclick="document.body.classList.toggle('light')">🌙</button></nav></header>
-<section class='hero'><div><h1>Jayaram Chaulagain</h1><h2 id=t></h2><p>Professional Portfolio Template with Dummy Data.</p></div></section>
-<section id=about><h2>About</h2><div class=card><p>Lorem ipsum professional summary. Replace this with your biography.</p></div>
-<div class=grid>
-<div class=card><h3>Education</h3><ul><li>Master's Degree (Dummy)</li><li>Bachelor's Degree (Dummy)</li></ul></div>
-<div class=card><h3>Experience</h3><ul><li>Senior Researcher (Dummy)</li><li>Software Engineer (Dummy)</li></ul></div>
-</div></section>
-<section id=skills><h2>Skills</h2>
-<div class=card>Python<div class=progress><div class=fill style='width:90%'></div></div></div>
-<div class=card>Web Development<div class=progress><div class=fill style='width:85%'></div></div></div>
-<div class=card>Research<div class=progress><div class=fill style='width:80%'></div></div></div>
-</section>
-<section id=projects><h2>Projects</h2><div class=grid>
-<div class=card><h3>AI Project</h3><p>Dummy description.</p></div>
-<div class=card><h3>Web System</h3><p>Dummy description.</p></div>
-<div class=card><h3>Research</h3><p>Dummy description.</p></div>
-</div></section>
-<section><h2>Awards</h2><div class=card>Dummy awards, publications, certifications, achievements.</div></section>
-<section id=contact><h2>Contact</h2><div class=card>Email: jayaram.chaulagain2043@gmail.com<br>GitHub: github.com/username<br>LinkedIn: linkedin.com/in/username</div></section>
-<footer style='padding:30px;text-align:center'>© 2026 Jayaram Chaulagain 2043</footer>
-<script>
-const s='Developer • Researcher • Educator';let i=0;setInterval(()=>{if(i<s.length)document.getElementById('t').textContent+=s[i++]},80)
-</script></body></html>
+  <header>
+    <h1>Welcome to My Personal Website</h1>
+    <p>Dynamic, responsive, and hosted with GitHub + Vercel</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I’m Jayaram, exploring AI, web development, and cybersecurity. This site is my digital playground.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul id="project-list">
+        <!-- Dynamic content will be injected here -->
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <form id="contact-form">
+        <label>Name:</label><br>
+        <input type="text" id="name" required><br><br>
+        <label>Message:</label><br>
+        <textarea id="message" required></textarea><br><br>
+        <button type="submit">Send</button>
+      </form>
+      <p id="form-response"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 JrcBpna | Hosted on Vercel</p>
+  </footer>
+
+  <script>
+    // Example dynamic content injection
+    const projects = [
+      { name: "Personal Website", link: "https://jrc-personal-website-repo.vercel.app" },
+      { name: "DemoPractice Repo", link: "https://github.com/JrcBpna/DemoPractice" }
+    ];
+
+    const projectList = document.getElementById("project-list");
+    projects.forEach(p => {
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="${p.link}" target="_blank">${p.name}</a>`;
+      projectList.appendChild(li);
+    });
+
+    // Simple form handler
+    document.getElementById("contact-form").addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const message = document.getElementById("message").value;
+      document.getElementById("form-response").textContent =
+        `Thanks, ${name}! Your message has been received: "${message}"`;
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
